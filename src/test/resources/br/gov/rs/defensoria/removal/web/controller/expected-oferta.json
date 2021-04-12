@@ -1,0 +1,38 @@
+{
+  "result": {
+    "idCandidato": null,
+    "idEdital": 99,
+    "vagas": [
+      {
+        "escolhida": false,
+        "id": 11,
+        "info": null,
+        "nomeExibicao": "Agudo",
+        "ordem": 0,
+        "ordemVaga": 1,
+        "selecionada": false,
+        "tipoVaga": 0
+      },
+      {
+        "escolhida": false,
+        "id": 21,
+        "info": null,
+        "nomeExibicao": "Alegrete",
+        "ordem": 0,
+        "ordemVaga": 2,
+        "selecionada": false,
+        "tipoVaga": 2
+      },
+      {
+        "escolhida": false,
+        "id": 30,
+        "info": null,
+        "nomeExibicao": "Alvorada",
+        "ordem": 0,
+        "ordemVaga": 3,
+        "selecionada": false,
+        "tipoVaga": 2
+      }
+    ]
+  }
+}

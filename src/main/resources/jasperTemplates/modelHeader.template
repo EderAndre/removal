@@ -1,0 +1,8 @@
+			<staticText>
+				<reportElement style="Column header" x="__X_POSITION" y="2" width="__WIDTH_DINAMIC_COLUMNS" height="170" forecolor="#000000" uuid="13859d42-83c3-402d-9cd4-5fb962437a0f"/>
+				<textElement verticalAlignment="Middle" rotation="Left">
+					<font size="7" isBold="false" isUnderline="false"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[__NAME_HEADER]]></text>
+			</staticText>

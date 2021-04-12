@@ -1,0 +1,11 @@
+<div class="cabecalho-avisos">Avisos</div>
+<div class="conteudo-avisos" ng-controller="AvisosEditalController">
+	<ul>
+		<li class="avisos-docs" ng-repeat="avisoEdital in avisosEdital">
+			<a href="javascript:void(0)" ng-click="modalAvisosEdital(avisoEdital)" ng-show="!avisoEdital.excluidoAviso">
+				<span class="glyphicon glyphicon-envelope"></span>
+				<b>{{avisoEdital.tituloAviso}}</b><br/>{{avisoEdital.dataAviso}}
+			</a>
+		</li>
+	</ul>
+</div>

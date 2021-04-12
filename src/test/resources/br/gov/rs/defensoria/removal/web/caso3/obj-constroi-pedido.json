@@ -1,0 +1,179 @@
+{"result":
+{
+"idEdital": 100,
+"idCandidato": null,
+"vagas": [
+{
+"id": 988530,
+"ordem": 0,
+"nomeExibicao": "Porto Alegre - UCAA CiVEL",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988531,
+"ordem": 0,
+"nomeExibicao": "Rio Grande 2",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988532,
+"ordem": 0,
+"nomeExibicao": "Novo Hamburgo 1",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988533,
+"ordem": 0,
+"nomeExibicao": "Lagoa Vermelha",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988534,
+"ordem": 0,
+"nomeExibicao": "Porto Alegre - FC - Defensorias Civeis 3",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988535,
+"ordem": 0,
+"nomeExibicao": "Porto Alegre - Partenon 2",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988536,
+"ordem": 0,
+"nomeExibicao": "Santa Vitória do Palmar",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988537,
+"ordem": 0,
+"nomeExibicao": "SUBDEF PG do Estado para Assuntos Juridicos 4",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988538,
+"ordem": 0,
+"nomeExibicao": "Bagé 2",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988539,
+"ordem": 0,
+"nomeExibicao": "Gravatai 1",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988540,
+"ordem": 0,
+"nomeExibicao": "São Francisco de Assis",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988541,
+"ordem": 0,
+"nomeExibicao": "Porto Alegre - Tristeza 2",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988542,
+"ordem": 0,
+"nomeExibicao": "NUDS - Núcleo de Defesa da Saúde",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988543,
+"ordem": 0,
+"nomeExibicao": "SUBDEF PG do Estado para Assuntos Juridicos 3",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988544,
+"ordem": 0,
+"nomeExibicao": "Cachoeirinha 2",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+"id": 988545,
+"ordem": 0,
+"nomeExibicao": "Erechim",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 0,
+"info": null
+},
+{
+  "id": 988546,
+  "ordem": 0,
+  "nomeExibicao": "Tapes",
+  "escolhida": false,
+  "selecionada": false,
+  "tipoVaga": 2,
+  "info": null
+},
+{
+"id": 988547,
+"ordem": 0,
+"nomeExibicao": "Irai",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 1,
+"info": null
+},
+{
+"id": 988548,
+"ordem": 0,
+"nomeExibicao": "Salto do Jacui",
+"escolhida": false,
+"selecionada": false,
+"tipoVaga": 1,
+"info": null
+}
+]
+}
+}

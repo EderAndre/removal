@@ -1,0 +1,11 @@
+<div class="cabecalho-avisos">Documentos Auxiliares</div>
+<div class="conteudo-avisos" ng-controller="DocsAuxiliaresController">
+	<ul>
+		<li class="avisos-docs" ng-repeat="doc in docs">
+			<a href="{{doc.linkDoc}}" ng-show="doc.exibir" target="_blank">
+				<span	class="glyphicon glyphicon-save"></span>
+				{{doc.rotuloDoc}}
+			</a>
+		</li>
+	</ul>
+</div>

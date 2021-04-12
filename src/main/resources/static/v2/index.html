@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="removalServiceApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="EXPIRES" content="0">
+<title>Sistema de Remoção de Servidores</title>
+<link rel="stylesheet" type="text/css"
+    href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+    href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"
+    href="bower_components/ngDialog/css/ngDialog.css">
+<link rel="stylesheet" type="text/css"
+    href="bower_components/ngDialog/css/ngDialog-theme-default.css">
+<link rel="stylesheet" type="text/css"
+    href="bower_components/jquery-ui/themes/start/jquery-ui.css">
+<link rel="stylesheet" type="text/css"
+    href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" />
+<link rel="stylesheet" type="text/css" href="app/css/app.css">
+
+</head>
+<body>
+    <div id="loader" class="max-load">
+         <div class="box-load">
+            <p>Aguarde...</p>
+            <img  class="loader" src="app/media/img/loading.gif" alt="Carregando...">
+         </div>
+    </div>
+    <div class="container col-lg-12 over-footer" ng-cloak>
+        <div class="container col-lg-12"
+            ng-include="'app/views/partials/componentes/cabecalho.html'"></div>
+        <div class="container col-lg-12" style="margin-bottom: 50px;"
+            ng-view ng-cloak></div>
+    </div>
+    <div class='footer'>
+        <p>Defensoria P&uacute;blica do Estado do Rio Grande do Sul
+        <p>
+    </div>
+    <script src="app/js/loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+			<image>
+				<reportElement x="__X_POSITION" y="164" width="__WIDTH_DINAMIC_COLUMNS" height="8" uuid="c439ba25-10e3-4385-bf5c-8684c3364687"/>
+				<imageExpression><![CDATA["__FLAG_STATUS"]]></imageExpression>
+			</image>

@@ -1,0 +1,1 @@
+INSERT INTO unidades (id_unidade, codigo, descricao, id_comarca)       VALUES (1, NULL, 'Agudo', 1001),              (2, NULL, 'Alegrete', 1001),              (3, NULL, 'Alvorada', 1001);

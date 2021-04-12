@@ -1,0 +1,12 @@
+	<style name="__CONDITIONAL_STYLE" forecolor="#000000" hAlign="Center" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<topPen lineColor="#666666"/>
+			<leftPen lineColor="#666666"/>
+			<bottomPen lineColor="#666666"/>
+			<rightPen lineWidth="0.25"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[($F{__FIELD_NAME} == $F{wonOrder})]]></conditionExpression>
+			<style mode="Opaque" forecolor="#FF3333" backcolor="#99FFFF" fontSize="10" isBold="true"/>
+		</conditionalStyle>
+	</style>

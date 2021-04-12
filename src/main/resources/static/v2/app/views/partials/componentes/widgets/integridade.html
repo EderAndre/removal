@@ -1,0 +1,8 @@
+<div ng-class="{'cabecalho-integridade-ok': statusOk, 'cabecalho-integridade-erro': !statusOk}" ng-controller="IntegridadeController">Integridade do Edital</div>
+<div ng-class="{'conteudo-integridade-ok': statusOk, 'conteudo-integridade-erro': !statusOk}" ng-controller="IntegridadeController">
+	<ul class="integridade">
+		<li ng-repeat="mensagem in msg">
+			{{mensagem}}
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,9 @@
+<div class="info-geral-edital">
+	<p ng-controller="InfosEditalController">
+		<b>{{infos.descricaoEdital}}</b><br /> {{infos.aberturaEdital | date: 'dd/MM/yyyy - HH:mm'}} a {{infos.encerramentoEdital | date: 'dd/MM/yyyy - HH:mm'}}
+	</p>
+	<p ng-controller="HorarioSistemaController">
+		<span class="glyphicon glyphicon-time"></span> Hor&aacute;rio do
+		sistema: {{horarioSistema}}.
+	</p>
+</div>

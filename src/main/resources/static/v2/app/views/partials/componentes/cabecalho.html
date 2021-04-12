@@ -1,0 +1,16 @@
+<div class="container col-lg-12" ng-controller="MenuTopoController">
+	<div class="row header">
+		<img src="app/media/img/logoOrgSec.png" class="pull-left col-lg-2"/>
+		<h2 class=" col-lg-8 texto-cabecalho">
+			<b>Sistema de Remoção</b>
+		</h2>
+		<div class='menu-topo pull-right col-lg-2 tranparente80' ng-show="mostrarMenu">
+			<h5><span class="glyphicon glyphicon-user"></span>  <b>{{dataUser.perfil}} - {{dataUser.nomeCompleto}}</b></h5>
+			<p ng-show="dataUser.perfil!='[SUPER_USER]' && dataUser.perfil!='[OPERADOR]'"><i>Local Atual:</i> {{editalCorrente.candidato.descricaoLotacao}}<br>
+			<i>Antiguidade:</i> {{editalCorrente.candidato.antiguidade}}</p>
+			<select class="btn btn-default btn-sm combo-menu" ng-model="indexEdital" ng-change="alterarEditalAtivo()" ng-show="dataUser.editaisAtivos.length>1 && dataUser.perfil!='[CANDIDATO]'">
+				<option ng-repeat="item in dataUser.editaisAtivos" value="{{$index}}" ng-selected="editalCorrente.idEdital==item.idEdital">{{item.idEdital}}-{{item.descricaoEdital}}</option>
+			</select>
+		</div>
+	</div>
+</div>

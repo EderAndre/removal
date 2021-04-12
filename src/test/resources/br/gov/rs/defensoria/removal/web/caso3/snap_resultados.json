@@ -1,0 +1,37 @@
+{"result":
+[
+{"id_resultado":	486	,	"cod_fechamento":	27	,	"cod_local":	988530	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	487	,	"cod_fechamento":	27	,	"cod_local":	988531	,	"matricula":	4245148	,	"ordem_ganha":	1	},
+{"id_resultado":	488	,	"cod_fechamento":	27	,	"cod_local":	988532	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	489	,	"cod_fechamento":	27	,	"cod_local":	988533	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	490	,	"cod_fechamento":	27	,	"cod_local":	988534	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	491	,	"cod_fechamento":	27	,	"cod_local":	988535	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	492	,	"cod_fechamento":	27	,	"cod_local":	988536	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	493	,	"cod_fechamento":	27	,	"cod_local":	988537	,	"matricula":	4245121	,	"ordem_ganha":	1	},
+{"id_resultado":	494	,	"cod_fechamento":	27	,	"cod_local":	988538	,	"matricula":	3871550	,	"ordem_ganha":	1	},
+{"id_resultado":	495	,	"cod_fechamento":	27	,	"cod_local":	988539	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	496	,	"cod_fechamento":	27	,	"cod_local":	988540	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	497	,	"cod_fechamento":	27	,	"cod_local":	988541	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	498	,	"cod_fechamento":	27	,	"cod_local":	988542	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	499	,	"cod_fechamento":	27	,	"cod_local":	988543	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	500	,	"cod_fechamento":	27	,	"cod_local":	988544	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	501	,	"cod_fechamento":	27	,	"cod_local":	988545	,	"matricula":	0	,	"ordem_ganha":	0	}
+]
+}
+
+SELECT '{"id_resultado":'
+      ,[id_resultado]
+      ,','
+      ,'"cod_fechamento":'
+      ,[cod_fechamento]
+      ,','
+      ,'"cod_local":'
+      ,[cod_local]
+      ,','
+      ,'"matricula":'
+      ,[matricula]
+      ,','
+      ,'"ordem_ganha":'
+      ,[ordem_ganha]
+      ,'},'
+  FROM [db_removal_new_2].[dbo].[snap_resultados]

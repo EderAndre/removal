@@ -1,0 +1,1 @@
+insert into tipos_edital (id, descricao) values (1, 'defensores');insert into editais (id_edital, abertura_edital, bloqueado, encerramento_edital, limite_primeira_candidatura, tipo_edital) values (1,'2016-03-01 09:00:00.0000000',0,'2016-03-03 18:00:00.0000000','2016-03-02 17:00:00.0000000', 1);insert into funcoes (id_funcao, descricao_funcao) values (1, 'DEFENSOR');

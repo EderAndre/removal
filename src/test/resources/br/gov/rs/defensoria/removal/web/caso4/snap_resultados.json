@@ -1,0 +1,40 @@
+{"result":
+[
+{"id_resultado":	577	,	"cod_fechamento":	31	,	"cod_local":	988530	,	"matricula":	4245121	,	"ordem_ganha":	1	},
+{"id_resultado":	578	,	"cod_fechamento":	31	,	"cod_local":	988531	,	"matricula":	4245148	,	"ordem_ganha":	1	},
+{"id_resultado":	579	,	"cod_fechamento":	31	,	"cod_local":	988532	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	580	,	"cod_fechamento":	31	,	"cod_local":	988533	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	581	,	"cod_fechamento":	31	,	"cod_local":	988534	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	582	,	"cod_fechamento":	31	,	"cod_local":	988535	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	583	,	"cod_fechamento":	31	,	"cod_local":	988536	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	584	,	"cod_fechamento":	31	,	"cod_local":	988537	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	585	,	"cod_fechamento":	31	,	"cod_local":	988538	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	586	,	"cod_fechamento":	31	,	"cod_local":	988539	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	587	,	"cod_fechamento":	31	,	"cod_local":	988540	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	588	,	"cod_fechamento":	31	,	"cod_local":	988541	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	589	,	"cod_fechamento":	31	,	"cod_local":	988542	,	"matricula":	3570118	,	"ordem_ganha":	1	},
+{"id_resultado":	590	,	"cod_fechamento":	31	,	"cod_local":	988543	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	591	,	"cod_fechamento":	31	,	"cod_local":	988544	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	592	,	"cod_fechamento":	31	,	"cod_local":	988545	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	593	,	"cod_fechamento":	31	,	"cod_local":	988546	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	594	,	"cod_fechamento":	31	,	"cod_local":	988547	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	595	,	"cod_fechamento":	31	,	"cod_local":	988548	,	"matricula":	0	,	"ordem_ganha":	0	}
+]
+}
+
+SELECT '{"id_resultado":'
+      ,[id_resultado]
+      ,','
+      ,'"cod_fechamento":'
+      ,[cod_fechamento]
+      ,','
+      ,'"cod_local":'
+      ,[cod_local]
+      ,','
+      ,'"matricula":'
+      ,[matricula]
+      ,','
+      ,'"ordem_ganha":'
+      ,[ordem_ganha]
+      ,'},'
+  FROM [db_removal_new_2].[dbo].[snap_resultados]

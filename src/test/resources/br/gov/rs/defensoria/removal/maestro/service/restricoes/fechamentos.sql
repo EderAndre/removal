@@ -1,0 +1,13 @@
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    1   ,   '   2016-03-14 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    2   ,   '   2016-03-15 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    3   ,   '   2016-03-16 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    4   ,   '   2016-03-17 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    5   ,   '   2016-03-18 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    6   ,   '   2016-03-21 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    7   ,   '   2016-03-22 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    8   ,   '   2016-03-23 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    9   ,   '   2016-03-24 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    10  ,   '   2016-03-25 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    11  ,   '   2016-03-28 17:00:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    12  ,   '   2016-03-29 14:03:00.0000000 '   ,   1   );
+insert into fechamentos (id_fechamento, data_fechamento, id_edital) values (    13  ,   '   2016-03-30 18:00:00.0000000 '   ,   1   );

@@ -1,0 +1,1 @@
+INSERT INTO permissoes (id_permissao, permissao, id_edital, matricula) VALUES (1, NULL, 101, 12345);

@@ -1,0 +1,116 @@
+<div class="container col-lg-12"  ng-controller="AdmAvisosController">
+	<div class="row" >
+		<div class="col-lg-9">
+			<div class="panel panel-default">
+			<div class="panel-heading"><h3>Avisos</h3></div>
+			  <div class="panel-body">
+			      <div>
+				      <div>
+							<div class="topo-botoes-adm-avisos">
+								<button class="btn btn-primary btn-xs" ng-click="modalNovoAviso()">
+									<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+									Novo aviso
+								</button>
+							</div>
+							<table class="table table-striped">
+								<tr>
+									<th width="150px">
+										Título
+									</th>
+									<th width="400px" style="word-wrap: break-word;">
+										Descrição
+									</th>
+									<th width="80px">				
+										Data da inclusão
+									</th>
+									<th width="80px">
+										Data do aviso
+									</th>
+									<th width="50px">
+										Opções
+									</th>
+								</tr>
+								<tr ng-repeat="aviso in avisos" ng-class="{'naoExibir alert-danger':aviso.excluidoAviso}">
+									<td>
+										{{aviso.tituloAviso}} <span ng-show='aviso.excluidoAviso'><b> (*Não exibido para os usuários)</b></span></td>
+									</td>
+									<td>
+										<div class="word-wrap-400"><span ng-bind-html="aviso.descricaoAviso"></span></div>
+									</td>
+									<td>
+										{{aviso.dataInclusao}}
+									</td>
+									<td>
+										{{aviso.dataAviso}}
+									</td>
+									<td>
+										<button class="btn btn-danger btn-xs" value="{{aviso}}" ng-click="excluirRestaurarAviso(aviso)" ng-show="!aviso.excluidoAviso">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button class="btn btn-default btn-xs" value="{{aviso}}" ng-click="excluirRestaurarAviso(aviso)" ng-show="aviso.excluidoAviso">
+											<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>		
+							</table>
+						</div>
+				      </div>			  
+				</div>
+		  </div>
+		</div>
+		<div class="col-lg-3">
+			<div ng-include="'app/views/partials/admin/lateral.html'"></div>
+		</div>
+	</div>
+</div>
+<!--  -->
+<script type="text/ng-template" id="modal-novo-aviso.html">	
+			<div class="panel panel-default">
+
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Inclusão de Aviso</h3>
+				  </div>
+				  <div class="panel-body ">
+				   <div class="form-group">
+				        <label for="titulo">Título</label>
+				        <input type="text" class="form-control" id="titulo" ng-model="model.tituloAviso" placeholder="Título">
+				    </div>
+				    <div class="form-group">
+				        <label for="titulo">Descrição</label>
+					<textarea ck-editor class="form-control" id="editordetexto" ng-model="model.descricaoAviso"></textarea>
+					</div>
+					<div class="form-group">
+       				 <label for="encerramentoEdital">Data de início da publicação:</label>
+       					 <div class="dropdown">
+		   					 <a class="dropdown-toggle my-toggle-select-enc" id="dLabelEnc" role="button" data-toggle="dropdown" data-target="#" href="">
+		        				<div class="input-append">
+									<div class="input-group">
+		        						<input type="text" ng-model="model.dataAviso" class="input-large form-control">
+ 										<div class="input-group-addon"><span class='glyphicon glyphicon-calendar'></span></div>
+									</div >
+	        						<span class="add-on">
+	        							<i class="icon-calendar"></i>
+	        						</span>
+		        				</div>
+		    				</a>
+		    				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabelEnc">
+		        				<datetimepicker data-on-set-time="mascaraTempo()"  data-ng-model="model.dataAviso"
+		                        	data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select-enc', minuteStep:30}"></datetimepicker>
+		    				</ul>
+						</div>
+    				</div>
+					
+					<div class="clearfix"></div>
+				 	<div class="radio-inline">
+		  				<label><input type="radio" value='0' name='model.exibirAviso' ng-model='model.excluidoAviso' ng-checked='true'>Não publicar</label>
+					</div>
+					<div class="radio-inline">
+		  				<label><input type="radio" value='1' name='model.exibirAviso' ng-model='model.excluidoAviso'>Publicar para os usuários</label>
+					</div>
+				  	</div>
+				   <div class="panel-footer"style="text-align:right;">	
+						    <a class='btn btn-default btn-xg' ng-show="model.descricaoAviso!=null"  ng-click='salvarAviso();closeThisDialog(0)'>Salvar <span class='glyphicon glyphicon-ok'></span></a>
+							<a class='btn btn-default btn-xg' ng-click="closeThisDialog(0)">Sair<span class='glyphicon glyphicon-log-out'></span></a>
+				   </div>
+			 </div>
+</script> 

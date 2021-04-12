@@ -1,0 +1,46 @@
+{"result":
+[
+{"id_resultado":	26	,	"cod_fechamento":	2	,	"cod_local":	7	,	"matricula":	2618389	,	"ordem_ganha":	1	},
+{"id_resultado":	27	,	"cod_fechamento":	2	,	"cod_local":	10	,	"matricula":	2665956	,	"ordem_ganha":	2	},
+{"id_resultado":	28	,	"cod_fechamento":	2	,	"cod_local":	19	,	"matricula":	2912783	,	"ordem_ganha":	2	},
+{"id_resultado":	29	,	"cod_fechamento":	2	,	"cod_local":	21	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	30	,	"cod_fechamento":	2	,	"cod_local":	23	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	31	,	"cod_fechamento":	2	,	"cod_local":	28	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	32	,	"cod_fechamento":	2	,	"cod_local":	29	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	33	,	"cod_fechamento":	2	,	"cod_local":	31	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	34	,	"cod_fechamento":	2	,	"cod_local":	32	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	35	,	"cod_fechamento":	2	,	"cod_local":	35	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	36	,	"cod_fechamento":	2	,	"cod_local":	39	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	37	,	"cod_fechamento":	2	,	"cod_local":	41	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	38	,	"cod_fechamento":	2	,	"cod_local":	61	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	39	,	"cod_fechamento":	2	,	"cod_local":	65	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	40	,	"cod_fechamento":	2	,	"cod_local":	69	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	41	,	"cod_fechamento":	2	,	"cod_local":	81	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	42	,	"cod_fechamento":	2	,	"cod_local":	86	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	43	,	"cod_fechamento":	2	,	"cod_local":	89	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	44	,	"cod_fechamento":	2	,	"cod_local":	90	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	45	,	"cod_fechamento":	2	,	"cod_local":	95	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	46	,	"cod_fechamento":	2	,	"cod_local":	105	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	47	,	"cod_fechamento":	2	,	"cod_local":	110	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	48	,	"cod_fechamento":	2	,	"cod_local":	111	,	"matricula":	0	,	"ordem_ganha":	0	},
+{"id_resultado":	49	,	"cod_fechamento":	2	,	"cod_local":	116	,	"matricula":	2942887	,	"ordem_ganha":	1	},
+{"id_resultado":	50	,	"cod_fechamento":	2	,	"cod_local":	118	,	"matricula":	0	,	"ordem_ganha":	0	}
+]
+}
+
+SELECT '{"id_resultado":'
+      ,[id_resultado]
+      ,','
+      ,'"cod_fechamento":'
+      ,[cod_fechamento]
+      ,','
+      ,'"cod_local":'
+      ,[cod_local]
+      ,','
+      ,'"matricula":'
+      ,[matricula]
+      ,','
+      ,'"ordem_ganha":'
+      ,[ordem_ganha]
+      ,'},'
+  FROM [db_removal_new_2].[dbo].[snap_resultados]

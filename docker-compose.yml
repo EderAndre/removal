@@ -1,0 +1,31 @@
+version: "3.4"
+services:
+  $SERVICE_NAME:
+    image: $IMAGE_NAME
+    deploy:
+      mode: replicated
+      replicas: 0
+      resources:
+        limits:
+          memory: 1200M
+      update_config:
+        parallelism: 1
+        failure_action: rollback
+        order: start-first
+      restart_policy:
+        condition: any
+        delay: 5s
+        window: 120s
+    environment:
+      - SPRING_PROFILES_ACTIVE=$SPRING_PROFILES_ACTIVE
+    ports:
+      - "$SERVER_PORT:8080"
+    volumes:
+      - type: bind
+        source: $NFS_PATH/removal
+        target: $CONTAINER_DIR
+
+networks:
+  default:
+    external:
+      name: $NETWORK

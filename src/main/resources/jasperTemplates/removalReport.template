@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+    name="report17" language="groovy" pageWidth="__WIDHT_REPORT"
+    pageHeight="__HEIGHT_REPORT" orientation="Landscape" columnWidth="__PLOT_AREA"
+    leftMargin="__MARGIN_LEFT" rightMargin="__MARGIN_RIGHT" topMargin="__MARGIN_TOP"
+    bottomMargin="__MARGIN_BOTTOM" uuid="96f270aa-1967-4ffe-af58-e0c707302574">
+    <property name="ireport.zoom" value="1.5" />
+    <property name="ireport.x" value="6" />
+    <property name="ireport.y" value="92" />
+    <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman"
+        fontSize="50" isBold="false" pdfFontName="Times-Bold" />
+    <style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman"
+        fontSize="18" isBold="false" pdfFontName="Times-Roman" />
+    <style name="Column header" forecolor="#666666" fontName="SansSerif"
+        fontSize="8" isBold="true" isItalic="false" isUnderline="false"
+        isStrikeThrough="false" pdfFontName="Times-Roman" />
+    <style name="Detail" mode="Transparent" forecolor="#000000"
+        fontName="SansSerif" fontSize="8" isBold="false" isItalic="false"
+        isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman">
+    </style>
+    <style name="Row" mode="Transparent" fontName="Times New Roman"
+        pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 ? true : false]]></conditionExpression>
+            <style backcolor="#CCCCCC" />
+        </conditionalStyle>
+    </style>
+    __DINAMIC_STYLES
+    <field name="antiquity" class="java.lang.String" />
+    <field name="name" class="java.lang.String" />
+    <field name="originOffice" class="java.lang.String" />
+    <field name="wonOffice" class="java.lang.String" />
+    <field name="wonOrder" class="java.lang.String" />
+    __DINAMIC_FIELDS
+    <variable name="LINE_NUMBER" class="java.lang.String"
+        incrementType="Column">
+        <variableExpression><![CDATA[($V{REPORT_COUNT}%2==0? $V{REPORT_COUNT}:$V{REPORT_COUNT}+1)]]></variableExpression>
+    </variable>
+    <background>
+        <band splitType="Stretch" />
+    </background>
+    <title>
+        <band height="71" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="2" y="0"
+                    width="__PLOT_AREA" height="66" backcolor="#FFFFFF"
+                    uuid="9c235f60-8d5c-4042-be73-5be4cf2d8f92" />
+                <box>
+                    <pen lineWidth="0.25" lineColor="#999999" />
+                    <topPen lineWidth="0.25" lineColor="#999999" />
+                    <leftPen lineWidth="0.25" lineColor="#999999" />
+                    <bottomPen lineWidth="0.25" lineColor="#999999" />
+                    <rightPen lineWidth="0.25" lineColor="#999999" />
+                </box>
+                <image>
+                    <reportElement x="-50" y="10" width="250"
+                        height="45" uuid="a42d2133-8097-4919-b6d5-f0ea77494478" />
+                    <imageExpression><![CDATA["__IMG_LOGO"]]></imageExpression>
+                </image>
+            </frame>
+            <staticText>
+                <reportElement x="200" y="5" width="220"
+                    height="66" uuid="962e60c5-52ce-4b44-9daa-abce67852c6b" />
+                <textElement>
+                    <font isBold="true" />
+                </textElement>
+                <text><![CDATA[SISTEMA DE REMOÇÃO DE DEFENSORES
+Fechamento: __DATE_RESULT
+Impressão: __DATE_PRINT]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch" />
+    </pageHeader>
+    <columnHeader>
+        <band height="172" splitType="Stretch">
+            <staticText>
+                <reportElement style="Column header" x="0"
+                    y="154" width="33" height="18" forecolor="#000000"
+                    uuid="a7e542bb-abcb-4c16-8aba-a179f20269c0" />
+                <textElement textAlignment="Center"
+                    verticalAlignment="Bottom">
+                    <font size="8" isBold="false" />
+                </textElement>
+                <text><![CDATA[Nº]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="33"
+                    y="123" width="33" height="49" forecolor="#000000"
+                    uuid="fcd51584-8345-4aee-9ec4-ceea2dfc632b" />
+                <textElement textAlignment="Center"
+                    verticalAlignment="Middle" rotation="Left">
+                    <font size="8" isBold="false" />
+                </textElement>
+                <text><![CDATA[Antiguidade]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="66"
+                    y="154" width="184" height="18" forecolor="#000000"
+                    uuid="652dc210-53c8-418c-8da3-8948875a0c4a" />
+                <textElement textAlignment="Center"
+                    verticalAlignment="Bottom">
+                    <font size="8" isBold="false" />
+                </textElement>
+                <text><![CDATA[Nome]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" x="250"
+                    y="154" width="230" height="18" forecolor="#000000"
+                    uuid="13859d42-83c3-402d-9cd4-5fb962437a0f" />
+                <textElement textAlignment="Center"
+                    verticalAlignment="Bottom">
+                    <font size="8" isBold="false" />
+                </textElement>
+                <text><![CDATA[Lotação]]></text>
+            </staticText>
+            __DINAMIC_HEADERS
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="14" splitType="Stretch">
+            <frame>
+                <reportElement style="Row" mode="Opaque"
+                    x="0" y="0" width="__PLOT_AREA" height="14"
+                    uuid="ac1d5c94-3dee-4274-9b1a-749f6b038f0d" />
+                <textField>
+                    <reportElement mode="Transparent" x="0"
+                        y="0" width="33" height="14" backcolor="#99FFFF"
+                        uuid="62d7c14f-b38d-4261-9b36-4d1dc4b1a0e7" />
+                    <box>
+                        <pen lineWidth="0.25" lineColor="#999999" />
+                        <topPen lineWidth="0.25" lineColor="#999999" />
+                        <leftPen lineWidth="0.25" lineColor="#999999" />
+                        <bottomPen lineWidth="0.25" lineColor="#999999" />
+                        <rightPen lineWidth="0.25" lineColor="#999999" />
+                    </box>
+                    <textElement textAlignment="Center">
+                        <font size="8" />
+                        <paragraph leftIndent="5" />
+                    </textElement>
+                    <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement mode="Transparent" x="33"
+                        y="0" width="33" height="14" backcolor="#99FFFF"
+                        uuid="381450c3-b507-4d69-af6f-da9d8dc6d11f" />
+                    <box>
+                        <pen lineWidth="0.25" lineColor="#999999" />
+                        <topPen lineWidth="0.25" lineColor="#999999" />
+                        <leftPen lineWidth="0.25" lineColor="#999999" />
+                        <bottomPen lineWidth="0.25" lineColor="#999999" />
+                        <rightPen lineWidth="0.25" lineColor="#999999" />
+                    </box>
+                    <textElement textAlignment="Center">
+                        <font size="8" />
+                        <paragraph leftIndent="5" />
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{antiquity}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement mode="Transparent" x="66"
+                        y="0" width="184" height="14" backcolor="#99FFFF"
+                        uuid="4258b29e-474e-4c12-87e4-3cf7ea90269e" />
+                    <box>
+                        <pen lineWidth="0.25" lineColor="#999999" />
+                        <topPen lineWidth="0.25" lineColor="#999999" />
+                        <leftPen lineWidth="0.25" lineColor="#999999" />
+                        <bottomPen lineWidth="0.25" lineColor="#999999" />
+                        <rightPen lineWidth="0.25" lineColor="#999999" />
+                    </box>
+                    <textElement>
+                        <font size="8" />
+                        <paragraph leftIndent="5" />
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement mode="Transparent" x="250"
+                        y="0" width="230" height="14" backcolor="#99FFFF"
+                        uuid="521b2372-105e-4408-ad36-018f7084987c" />
+                    <box>
+                        <pen lineWidth="0.25" lineColor="#999999" />
+                        <topPen lineWidth="0.25" lineColor="#999999" />
+                        <leftPen lineWidth="0.25" lineColor="#999999" />
+                        <bottomPen lineWidth="0.25" lineColor="#999999" />
+                        <rightPen lineWidth="0.25" lineColor="#999999" />
+                    </box>
+                    <textElement>
+                        <font size="8" />
+                        <paragraph leftIndent="5" />
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{originOffice}]]></textFieldExpression>
+                </textField>
+                __DINAMIC_TEXT_FIELDS
+                <image>
+                    <reportElement x="239" y="2" width="12"
+                        height="12" uuid="d75f58dd-15e6-496e-a07d-0e48ae5b75ba">
+                        <printWhenExpression><![CDATA[( $F{wonOffice}== 'null' ? true : false  )]]></printWhenExpression>
+                    </reportElement>
+                    <imageExpression><![CDATA["__IMG_STAR_OFF"]]></imageExpression>
+                </image>
+                <image>
+                    <reportElement x="239" y="2" width="12"
+                        height="12" uuid="a973edf4-c1f1-4508-a294-a28c610df0bb">
+                        <printWhenExpression><![CDATA[( $F{wonOffice}!= 'null' ? true : false  )]]></printWhenExpression>
+                    </reportElement>
+                    <imageExpression><![CDATA["__IMG_STAR_ON"]]></imageExpression>
+                </image>
+            </frame>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="17" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom"
+                    x="0" y="3" width="__PLOT_AREA" height="1"
+                    uuid="90aa5157-c65a-4943-b8b0-b11684cd8af2" />
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999" />
+                </graphicElement>
+            </line>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="25" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="0" y="0"
+                    width="__PLOT_AREA" height="25" forecolor="#D0B48E"
+                    backcolor="#FFFFFF" uuid="c9ed211c-9c09-4f92-aca6-ed8af72aaa3f" />
+                <textField evaluationTime="Report">
+                    <reportElement style="Column header"
+                        x="323" y="5" width="40" height="20" forecolor="#666666"
+                        uuid="cf914ee8-09c3-415c-ba81-0fa9ab00326b" />
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement style="Column header"
+                        x="243" y="5" width="80" height="20" forecolor="#666666"
+                        uuid="093a7e06-60f3-48f2-a20c-3e2d9286c362" />
+                    <textElement textAlignment="Right"
+                        verticalAlignment="Middle">
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+                </textField>
+                <textField pattern="dd/MM/yyyy HH:mm:ss">
+                    <reportElement style="Column header"
+                        x="2" y="3" width="197" height="20" forecolor="#666666"
+                        uuid="f4a85f0a-e183-4f1e-9354-60c6ef199554" />
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <textFieldExpression><![CDATA['']]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch" />
+    </summary>
+</jasperReport>

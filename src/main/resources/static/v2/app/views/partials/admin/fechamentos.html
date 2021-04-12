@@ -1,0 +1,53 @@
+<div class="container col-lg-12"  ng-controller="AdmFechamentosController">
+	<div class="row" >
+		<div class="col-lg-9">
+			<div class="panel panel-default">
+			<div class="panel-heading"><h3>Fechamentos</h3></div>
+			  <div class="panel-body">
+			      <div>
+				      <div>
+							
+							<table class="table table-striped">
+								<tr>
+									<th width="20px">
+										Ordem
+									</th>
+									<th width="200px">
+										Data/Hora do fechamento
+									</th>
+									<th width="80px">				
+										Status
+									</th>
+									<th width="200px">
+										Relatórios
+									</th>
+								</tr>
+								<tr ng-repeat="fechamento in fechamentos">
+									<td>
+										{{$index+1}}
+									</td>
+									<td>
+										{{fechamento.dataHora}}
+									</td>
+									<td>
+										<a class="disabled" ng-class="{'btn btn-warning btn-xs': (fechamento.status == 'Aguardando'),'btn btn-success btn-xs': (fechamento.status == 'Realizado')}">{{fechamento.status}}</a>
+									</td>
+									<td>
+										<a href="{{fechamento.relatorioFechamento}}" target="_blank" class="btn btn-link" ng-show="fechamento.relatorioFechamento !='' && fechamento.relatorioFechamento !=null" ><span class="glyphicon glyphicon glyphicon-download-alt" title="Relatório de fechamento"></span>  Fechamento</a>
+										<a href="javascript:void(0)" class="btn btn-link disabled" ng-show="fechamento.relatorioFechamento =='' || fechamento.relatorioFechamento ==null" ><span class="glyphicon glyphicon-ban-circle" title="Relatório Não disponível"></span>  Fechamento(Não disponível)</a>
+										
+										<a href="{{fechamento.relatorioPreliminar}}" target="_blank" class="btn btn-link" ng-show="fechamento.relatorioPreliminar !='' && fechamento.relatorioPreliminar !=null" ><span class="glyphicon glyphicon glyphicon-download-alt" title="Relatório Preliminar"></span>  Simplificado</a>
+										<a href="javascript:void(0)" class="btn btn-link disabled" ng-show="fechamento.relatorioPreliminar =='' || fechamento.relatorioPreliminar ==null" ><span class="glyphicon glyphicon-ban-circle" title="Relatório Não disponível"></span>  Simplificado (Não disponível)</a>
+									</td>
+								</tr>		
+							</table>
+						</div>
+				      </div>			  
+				</div>
+		  </div>
+		</div>
+		<div class="col-lg-3">
+			<div ng-include="'app/views/partials/admin/lateral.html'"></div>
+		</div>
+	</div>
+</div>

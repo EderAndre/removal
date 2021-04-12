@@ -1,0 +1,159 @@
+<div class="container col-lg-12" ng-controller="AdmEditaisController">
+    <div class="row" >
+        <div class="col-lg-9">
+            <div class="panel panel-default">
+            <div class="panel-heading"><h3>Detalhes do Edital</h3></div>
+              <div class="panel-body">
+                  <div class="recuo-tela-principal" >
+                    <div class="form-group detalhes-edital-01">
+                        <label for="descricaoEdital" ng-click="al()">Descrição</label>
+                        <input type="text" class="form-control" ng-model="edital.descricaoEdital" id="descricaoEdital" placeholder="Descrição">
+                    </div>
+                    
+                    <div class="checkbox bloq-edital-adm">
+                        <label>
+                          <input type="checkbox" ng-model="edital.bloqueado"> Bloqueado
+                        </label>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="row row-datas">
+                            <div class="form-group datas-edital-adm-02">
+                                <label>Abertura</label>          
+                                <div class="dropdown form-control">
+                                    <a class="dropdown-toggle-abertura" id="dLabelAb" role="button" data-toggle="dropdown" data-target="#" href="">
+                                        {{edital.aberturaEdital | date:'dd/MM/yyyy - HH:mm'}}
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelAb">
+                                        <datetimepicker data-ng-model="edital.aberturaEdital"
+                                                        data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle-abertura', 
+                                                        minuteStep: 15}">
+                                        </datetimepicker>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group datas-edital-adm">
+                                <label>Encerramento</label>
+                                <div class="dropdown form-control">
+                                    <a class="dropdown-toggle-encerramento" id="dLabelEnc" role="button" data-toggle="dropdown" data-target="#" href="">
+                                        {{edital.encerramentoEdital | date:'dd/MM/yyyy - HH:mm'}}
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelEnc">
+                                        <datetimepicker data-ng-model="edital.encerramentoEdital"
+                                                        data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle-encerramento', 
+                                                        minuteStep: 15}">
+                                        </datetimepicker>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group datas-edital-adm">
+                                <label>Limite Primeira Candidatura</label>    
+                                <div class="dropdown form-control">
+                                    <a class="dropdown-toggle-limite" id="dLabelLim" role="button" data-toggle="dropdown" data-target="#" href="">
+                                        {{edital.limitePrimeiraCandidatura | date:'dd/MM/yyyy - HH:mm'}}
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelLim">
+                                        <datetimepicker data-ng-model="edital.limitePrimeiraCandidatura"
+                                                        data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle-limite', 
+                                                        minuteStep: 15}">
+                                        </datetimepicker>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group datas-edital-adm">
+                                <label>Início Somente Desistências</label>                                
+                                <div class="input-group">
+                                    <div class="form-control">
+                                        <div class="dropdown">
+                                            <a class="dropdown-toggle-desistencias" id="desistencias" role="button" data-toggle="dropdown" data-target="#" href="">
+                                                 <span ng-show="edital.dataApenasDesistenciasPermitidas == undefined || edital.dataApenasDesistenciasPermitidas == ''">
+                                                    Sem restrição
+                                                </span>
+                                                <span ng-show="edital.dataApenasDesistenciasPermitidas != undefined && edital.dataApenasDesistenciasPermitidas != ''">
+                                                    {{edital.dataApenasDesistenciasPermitidas | date:'dd/MM/yyyy - HH:mm'}}
+                                                </span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="desistencias">
+                                                <datetimepicker data-ng-model="edital.dataApenasDesistenciasPermitidas"
+                                                                data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle-desistencias', 
+                                                                minuteStep: 15}">
+                                                </datetimepicker>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" ng-click="limpaDataSomenteDesistencias()">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </span>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group clear-both-edital-admin">
+                        <label for="editAssinatura">Assinatura do E-mail</label>
+                        <textarea ck-editor id="editAssinatura" ng-model="edital.assinaturaEmailEdital"></textarea>
+                    </div>
+                    
+                    <div class="form-group mail-envio-edital-adm">
+                        <label for="emailEnvio">E-mail para Envio</label>
+                        <input type="text" class="form-control" ng-model="edital.emailEnvioEdital" id="emailEnvio" placeholder="E-mail para Envio">
+                    </div>
+                    
+                    <div class="form-group mail-resp-edital-adm">
+                        <label for="emailResposta">E-mail para Resposta</label>
+                        <input type="text" class="form-control" ng-model="edital.emailRespostaEdital" id="emailResposta" placeholder="E-mail para Resposta">
+                    </div>
+                    
+                    <div class="form-group clear-both-edital-admin">
+                        <button class="btn btn-default" ng-click="salvarEdital()">Salvar Edital</button>
+                         <button class="btn btn-primary" ng-click="testarIntegridade()">Teste de Integridade</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+            <div ng-include="'app/views/partials/admin/lateral.html'"></div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<script type="text/ng-template" id="edital-integridade.html">    
+            <div class="panel panel-default">
+
+                  <div class="panel-heading">
+                    <h5 class="panel-title">Teste de Integridade</h5>
+                  </div>
+                  <div class="panel-body">
+                    <h4>{{integridade.idEdital}} - {{integridade.nomeEdital}}</h4>
+                    <ul class="list-group">
+                     <li class="list-group-item"><i>Candidatos:</i><b> {{integridade.totalCandidatos}}</b></li>
+                    <li class="list-group-item"><i>Vagas:</i><b> {{integridade.totalVagas}}</b></li>
+                    <li class="list-group-item"><i>Fechamentos:</i><b> {{integridade.totalFechamentos}}</b></li>
+                    <li class="list-group-item"><i>Candidatos sem Lotação:</i><b> {{integridade.totalCandidatosSemLotacao}}</b></li>
+                    <li class="list-group-item">
+                        <p ng-show='contador<9'><img width='30px' height='auto' src='app/media/img/loading.gif'/> Executando</p>
+                        <p ng-show='contador>=9'><span class="glyphicon glyphicon-ok"></span> Concluído</p>
+                        <ul class="list-group">
+                              <li class="list-group-item" ng-repeat="res in resultado" ng-class="{'alert alert-success':res.status,'alert alert-danger':!res.status}">
+                                <p> <span ng-class="{'glyphicon glyphicon-ok':res.status,'glyphicon glyphicon-alert':!res.status}"></span>  {{res.descricao}}</p>
+                                <span ng-show='res.status==false'>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">{{res.observacao}}</li>
+                                    </ul>
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                      </div>
+                   <div class="panel-footer"style="text-align:right;">    
+                            <a class='btn btn-default btn-xg' ng-show="model.descricaoAviso!=null"  ng-click='salvarAviso();closeThisDialog(0)'>Salvar <span class='glyphicon glyphicon-ok'></span></a>
+                            <a class='btn btn-default btn-xg' ng-click="closeThisDialog(0)">Sair<span class='glyphicon glyphicon-log-out'></span></a>
+                   </div>
+             </div>
+</script> 

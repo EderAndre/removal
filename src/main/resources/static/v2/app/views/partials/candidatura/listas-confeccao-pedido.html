@@ -1,0 +1,269 @@
+<div class="container col-lg-12" ng-controller="CandidaturaController">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="panel panel-default recuo-tela-principal">
+                <div class="panel-body">
+                    <div class="col-lg-5 ">
+                        <h5 class="pull-left alinha-rotulo">
+                            Defensorias P&uacute;blicas Dispon&iacute;veis
+                        </h5>
+                        <div class="lista-cabecalho">
+                            <div class="col-lg-11 pull-right busca">
+                                <div
+                                    id="custom-search-input pull-right ">
+                                    <div class="input-group "
+                                        ng-init="search=false">
+                                        <input id="search"
+                                            ng-show='search' type="text"
+                                            class="form-control input-xg"
+                                            ng-model="buscaUnidade"
+                                            placeholder="Buscar" /> <span
+                                            class="input-group-btn"
+                                            ng-show="buscaUnidade=='' ||buscaUnidade==null">
+                                            <button
+                                                class="btn btn-default btn-xg  pull-right"
+                                                type="button"
+                                                ng-click="search= !search;foco('search')">
+                                                <i
+                                                    class="glyphicon glyphicon-search"></i>
+                                            </button>
+                                        </span> <span class="input-group-btn"
+                                            ng-show="buscaUnidade!=''&& buscaUnidade!=null">
+                                            <button
+                                                class="btn btn-default btn-xg  pull-right"
+                                                type="button"
+                                                ng-click="buscaUnidade='';search= !search">
+                                                <i
+                                                    class="glyphicon glyphicon-remove"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul
+                            class="lista-vagas vagas_nao_escolhidas origem"
+                            ng-click="limpaSelecao('escolhidas')">
+                            <li class='noselect'
+                                ng-repeat="vaga in vagas | filter: {escolhida: false}|filter: {nomeExibicao: buscaUnidade}">
+                                <div class="alert alert-default orelha"
+                                    ng-class="{'vaga-selecionada': vaga.selecionada,'vaga-item': !vaga.selecionada}"
+                                    ng-click="selecionaVaga(vaga);">
+                                    <div
+                                        ng-class="{'green':vaga.tipoVaga=='0','yellow':vaga.tipoVaga=='1','red':vaga.tipoVaga=='2'}"></div>
+                                    <span>{{vaga.nomeExibicao}}</span> <a
+                                        class="pull-right vaga-item-menu cursor-pointer titip-bottom-left titip-fade titip-wrapped-large titip-default"><span
+                                        class="glyphicon glyphicon-info-sign  tranparente80"></span>
+                                        <div
+                                            class="titip-content clearfix">
+                                            {{vaga.info}} <span
+                                                ng-show="vaga.info==''||vaga.info==null"><i>*
+                                                    Informação
+                                                    indisponível</i></span>
+                                        </div> </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="listas-botoes-move-itens col-lg-1">
+                        <a ng-hide="editalCorrente.isModoSomenteDesistencias" class="btn btn-default"
+                            ng-click="search=false;buscaUnidade='';trocaListaVagasSelecionadas('escolhidas')">
+                            <span
+                            class="glyphicon glyphicon-circle-arrow-right"></span>
+                        </a>
+                        <div class="clearfix">
+                            <br />
+                        </div>
+                        <a class="btn btn-default"
+                            ng-click="search1=false;buscaUnidade1='';trocaListaVagasSelecionadas('disponiveis')">
+                            <span
+                            class="glyphicon glyphicon-circle-arrow-left"></span>
+                        </a>
+                    </div>
+                    <div class="col-lg-5">
+                        <h5 class="pull-left alinha-rotulo">
+                            Defensorias P&uacute;blicas Escolhidas
+                        </h5>
+                        <div class="lista-cabecalho">
+                            <div class="col-lg-11 pull-right busca">
+                                <div
+                                    id="custom-search-input pull-right ">
+                                    <div class="input-group "
+                                        ng-init="search1=false">
+                                        <input id="search1"
+                                            ng-show='search1'
+                                            type="text"
+                                            class="form-control input-xg"
+                                            ng-model="buscaUnidade1"
+                                            placeholder="Buscar" /> <span
+                                            class="input-group-btn"
+                                            ng-show="buscaUnidade1=='' ||buscaUnidade1==null">
+                                            <button
+                                                class="btn btn-default btn-xg  pull-right"
+                                                type="button"
+                                                ng-click="search1= !search1;foco('search1')">
+                                                <i
+                                                    class="glyphicon glyphicon-search"></i>
+                                            </button>
+                                        </span> <span class="input-group-btn"
+                                            ng-show="buscaUnidade1!=''&& buscaUnidade1!=null">
+                                            <button
+                                                class="btn btn-default btn-xg  pull-right"
+                                                type="button"
+                                                ng-click="buscaUnidade1='';search1= !search1">
+                                                <i
+                                                    class="glyphicon glyphicon-remove"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="lista-vagas vagas_escolhidas"
+                            ng-click="limpaSelecao('disponiveis')">
+                            <li class='noselect'
+                                ng-repeat="vaga in filtrados=(vagas | filter: {escolhida: true}|filter: {nomeExibicao: buscaUnidade1})">
+                                <div class="alert alert-default  orelha"
+                                    ng-class="{'vaga-selecionada': vaga.selecionada,'vaga-item': !vaga.selecionada}"
+                                    ng-click="selecionaVaga(vaga);">
+                                    <div 
+                                        ng-class="{'green':vaga.tipoVaga=='0','yellow':vaga.tipoVaga=='1','red':vaga.tipoVaga=='2'}"></div>
+                                    <span >{{$index+1}} .
+                                        {{vaga.nomeExibicao}}</span> <a ng-hide="editalCorrente.isModoSomenteDesistencias"
+                                        class="pull-right vaga-item-menu cursor-pointer"
+                                        ng-click="limpaSelecao(escolhidas);vaga.selecionada=true;trocaListaVagasSelecionadas('disponiveis');"><span
+                                        class="glyphicon glyphicon-trash  tranparente80"></span></a>&nbsp;
+                                    <a
+                                        class="pull-right vaga-item-menu cursor-pointer titip-bottom-left titip-fade titip-wrapped-large titip-default"><span
+                                        class="glyphicon glyphicon-info-sign  tranparente80"></span>
+                                        <div
+                                            class="titip-content clearfix">
+                                            {{vaga.info}} <span
+                                                ng-show="vaga.info==''||vaga.info==null"><i>*
+                                                    Informação
+                                                    indisponível</i></span>
+                                        </div> </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="lista-cabecalho">
+                            <div class="col-lg-6">
+                                <button ng-hide="editalCorrente.isModoSomenteDesistencias"
+                                    class="btn btn-default pull-left"
+                                    ng-disabled="selecionadas=(vagas | filter: {selecionada: true}| filter: {escolhida: true});selecionadas.length!=1 || filtrados.length <2 "
+                                    ng-click="firstUp(vagas)"
+                                    title="Move uma seleção única acima"
+                                    alt="Move uma seleção única acima">
+                                    <span
+                                        class="glyphicon glyphicon glyphicon-circle-arrow-up"></span>
+                                </button>
+                                <button ng-hide="editalCorrente.isModoSomenteDesistencias"
+                                    class="btn btn-default pull-left"
+                                    ng-disabled="selecionadas=(vagas | filter: {selecionada: true}| filter: {escolhida: true}); selecionadas.length!=1 || filtrados.length <2 "
+                                    ng-click="firstDown(vagas)"
+                                    title="Move uma seleção única  abaixo"
+                                    alt="Move uma seleção única abaixo">
+                                    <span
+                                        class="glyphicon glyphicon glyphicon-circle-arrow-down"></span>
+                                </button>
+                                <button ng-hide="editalCorrente.isModoSomenteDesistencias"
+                                    class="btn btn-default pull-left"
+                                    ng-disabled=" selecionadas=(vagas | filter: {selecionada: true});selecionadas.length<1"
+                                    ng-click="limpaSelecao()"
+                                    title="Limpa toda seleção"
+                                    alt="Limpa toda seleção">
+                                    <span
+                                        class="glyphicon glyphicon glyphicon-erase"></span>
+                                </button>
+                            </div>
+                            <div class="col-lg-6">
+                                <button
+                                    class="btn btn-default pull-right"
+                                    ng-click="confirmaExclusao()"
+                                    title="Remover todos os pedidos"
+                                    alt="Remover todos os pedidos">
+                                    <span
+                                        class="glyphicon glyphicon glyphicon-trash"></span>
+                                </button>
+                                <button
+                                    class="btn btn-success pull-right"
+                                    ng-click="confirmaOpcoes()"
+                                    ng-disabled="dataUser.perfil=='[SUPER_USER]'||dataUser.perfil=='[OPERADOR]'"
+                                    title="Salvar Alterações"
+                                    alt="Salvar Alterações">
+                                    Salvar <span
+                                        class="glyphicon glyphicon glyphicon-floppy-disk"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3" ng-click="limpaSelecao()">
+            <div
+                ng-include="'app/views/partials/candidatura/lateral.html'"></div>
+        </div>
+    </div>
+    <!--  -->
+    <script type="text/ng-template" id="confirmacaoOpcoes.html">	
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title redText">Confirme sua Ordem de Preferências</h3>
+          </div>
+          <div class="panel-body modal-confirmacao-body">
+            <ul class='list-group' >
+                <li class='list-group-item' ng-repeat="vaga in vagasEscolhidas"> <span class="badge badge-danger pull-left">{{$index+1}}ª Preferência </span>&nbsp;{{vaga.nomeExibicao}}</li>
+            </ul>
+            <p class="alert alert-warning" ng-show="vagasEscolhidas.length==0">Não há opções selecionadas<p>
+                </div>
+               <div class="panel-footer modal-confirmacao-rodape">
+               	<div class="col-lg-4" pull-left>
+    <img width="120px" height="auto" class="pull-right" ng-src='/captcha/imagem?segredo={{captcha}}' />
+    </div>
+    <div class="col-lg-1 pull-left">
+        <a class='btn btn-xg btn-default pull-left' ng-click='novoCaptcha();digitado=null;'><span class='glyphicon glyphicon-refresh'></span></a>
+        
+    </div>
+    <div class="col-lg-6 pull-right">  
+<input  class="form-control" ng-change="atualizaCaptchaVal(digitado)" ng-model="digitado" required/>
+    <a class='btn btn-default btn-xg' ng-show="captchaVal!=null"  ng-click='realizarPedido();closeThisDialog(0)'>Ok<span class='glyphicon glyphicon-ok'></span></a>
+<a class='btn btn-default btn-xg' ng-click="closeThisDialog(0)">Sair<span class='glyphicon glyphicon-log-out'></span></a>
+</div>
+           </div>
+         </div>
+</script>
+    <script type="text/ng-template" id="confirmacaoExclusaoTotal.html">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Confirmação de Exclusão</h3>
+  </div>
+  <div class="panel-body ">
+    <p>Caso salve seus pedidos após a exclusão de todas
+                    as opções, não estará concorrendo a nenhuma vaga. 
+                    Confirma a exclusão de todas as opções?
+                    (Ainda será necessário salvar para garantir a exclusão total)</p>
+  </div>
+   <div class="panel-footer ngdialog-buttons">
+                  <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">Fechar <span class='glyphicon glyphicon-log-out'></span></button>
+                  <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm(1)">Ok <span class='glyphicon glyphicon-ok'></span></button>
+   </div>
+ </div>
+</script>
+    <script type="text/ng-template" id="semAlteracoes.html">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><b>Atenção,não houveram alterações!</b></h3>
+      </div>
+      <div class="panel-body ">
+        <p>Não houve aleração de suas opções, sendo assim não há 
+            necessidade de salvar(o último grupo de opções continuará 
+            sendo considerado)</p>
+       </div>
+       <div class="panel-footer ngdialog-buttons">
+           <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">Fechar <span class="glyphicon glyphicon glyphicon-log-out"></span></button>
+       </div>
+  </div>
+</script>
+    <!-- -->
+</div>

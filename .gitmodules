@@ -1,0 +1,3 @@
+[submodule "deploy-module"]
+	path = deploy-module
+	url = ../deploy-module.git

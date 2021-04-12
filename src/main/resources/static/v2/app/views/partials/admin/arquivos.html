@@ -1,0 +1,75 @@
+<div class="container col-lg-12">
+	<div class="row" >
+		<div class="col-lg-9">
+			<div class="panel panel-default">
+			<div class="panel-heading"><h3>Arquivos/ Documentos Auxiliares</h3></div>
+			  <div class="panel-body">
+					<div ng-controller="AdmArquivosController">
+						<div class="topo-botoes-adm-avisos">
+							<button class="btn btn-primary btn-xs" ng-click="inclusaoArquivo()">
+								<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+								Novo Arquivo
+							</button>
+						</div>
+						<table class="table table-striped">
+							<tr>
+								<th>Id</th>
+								<th>Descrição</th>
+								<th>Data Inclusão</th>
+								<th>Opções</th>
+							</tr>
+							<tr ng-repeat="arquivo in docs | orderBy:'-dataArquivo'" class="adm-avisos" ng-class="{'naoExibir alert-danger':arquivo.exibir==0}">
+								<td width='50px'>{{arquivo.idDoc}}</td>
+								<td width='250px'>{{arquivo.rotuloDoc}}<span ng-show='arquivo.exibir==0'><b> (*Não exibido para os usuários)</b></span></td>
+								<td width='150px'>{{arquivo.dataDoc}}</td>
+								<td width='100px'>
+									<a href="{{arquivo.linkDoc}}" target="_blank" class="btn btn-default btn-xs"> 
+										<span class="glyphicon glyphicon-download" ></span>
+									</a>
+									<button class="btn btn-danger btn-xs" ng-show="arquivo.exibir=='1'" ng-click="status(arquivo.idDoc)">
+										<span class="glyphicon glyphicon-trash"></span>
+									</button>
+									<button class="btn btn-default btn-xs" ng-show="arquivo.exibir=='0'" ng-click="status(arquivo.idDoc)")>
+										<span class="glyphicon glyphicon-ok"></span>
+									</button>
+								</td>
+							</tr>		
+						</table>
+					</div>
+				</div>
+		  </div>
+		</div>
+		<div class="col-lg-3">
+			<div ng-include="'app/views/partials/admin/lateral.html'"></div>
+		</div>
+	</div>
+</div>
+<!--  -->
+<script type="text/ng-template" id="uploadArquivo.html">	
+			<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Inclusão de Arquivo</h3>
+				  </div>
+				  <div class="panel-body ">
+					<div class="form-group">
+				        <label for="titulo">Descricao</label>
+				       	<input  class="form-control" ng-model="model.descricaoArquivo" required/>
+				    </div>
+					<div class="form-group">
+				        <label for="titulo">Arquivo</label>
+						<input type="file" ng-model-instant id="fileToUpload" name="fileToUpload"  multiple onchange="angular.element(this).scope().setFiles(this)"/>
+					</div>
+					<div class="clearfix"></div>
+				 	<div class="radio-inline" ng-init="data.exibir=1">
+		  				<label><input type="radio" value='0' name='model.exibirArquivo' ng-model='model.exibirArquivo'>Não publicar</label>
+					</div>
+					<div class="radio-inline">
+		  				<label><input type="radio" value='1' name='model.exibirArquivo' ng-model='model.exibirArquivo'>Publicar para os usuários</label>
+					</div>
+				  	</div>
+				   <div class="panel-footer"style="text-align:right;">	
+						    <a class='btn btn-default btn-xg' ng-show="model.descricaoArquivo!=null"  ng-click='enviaArquivo();closeThisDialog(0)'>Salvar <span class='glyphicon glyphicon-ok'></span></a>
+							<a class='btn btn-default btn-xg' ng-click="closeThisDialog(0)">Sair<span class='glyphicon glyphicon-log-out'></span></a>
+				   </div>
+			 </div>
+</script> 

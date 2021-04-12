@@ -1,0 +1,10 @@
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (1, '2016-02-01 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (2, '2016-02-03 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (3, '2016-02-04 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (4, '2016-02-05 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (5, '2016-02-10 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (6, '2016-02-11 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (7, '2016-02-12 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (8, '2016-02-15 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (9, '2016-02-16 18:00:00.0000000', NULL, NULL, 1);
+insert into fechamentos (id_fechamento, data_fechamento, relatorio_fechamento, relatorio_preliminar, id_edital) values (10, '2016-02-17 18:00:00.0000000', NULL, NULL, 1)

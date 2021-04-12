@@ -1,0 +1,87 @@
+before_script: #Set home do gradle para raiz do projeto para poder fazer cache das dependencias
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+
+stages:
+  - test
+  - build
+  - deploy_prod
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  SERVICE_NAME: $CI_PROJECT_NAME
+  IMAGE_NAME: "$REGISTRY_ADDRESS/dpe/$CI_PROJECT_NAME:$CI_COMMIT_TAG"
+  COMPOSE_FILE: "docker-compose.yml"
+
+.gitlab_runner_template:
+  tags:
+    - ubuntu
+
+.gradle_cache_template:
+  cache:
+    paths:
+      - .gradle/wrapper
+      - .gradle/caches
+
+.deploy_swarm_template:
+  extends:
+    - .gitlab_runner_template
+  script:
+    - ./deploy-module/default_deploy.sh
+
+.build_template:
+  stage: build
+  extends:
+    - .gradle_cache_template
+    - .gitlab_runner_template
+  cache:
+    policy: pull #Otimizacao para apenas baixar o cache, não faz upload no final do job (cache já feito anteriormente)
+  script:
+    - ./gradlew clean assemble --no-daemon
+    - . ./deploy-module/functions.sh
+    - build_and_push_docker_image
+
+testes:
+  stage: test
+  extends:
+    - .gradle_cache_template
+    - .gitlab_runner_template
+  script:
+    - ./gradlew clean test
+  only:
+    - pushes
+  except:
+    - master
+    - tags
+
+build_untagged:
+  extends: .build_template
+  variables:
+    IMAGE_NAME: "$REGISTRY_ADDRESS/dpe/$CI_PROJECT_NAME:$CI_PIPELINE_ID"
+  only:
+    - master
+  artifacts:
+    paths:
+      - build/libs/*.*ar
+    expire_in: 1 day
+
+build_tagged:
+  extends: .build_template
+  only:
+    - tags
+
+deploy_prod:
+  extends: .deploy_swarm_template
+  dependencies: []
+  stage: deploy_prod
+  when: manual
+  environment:
+    name: production
+  variables:
+    NETWORK: producao_network
+    SWARM_ADDRESS: $PRODUCAO_SWARM_ADDRESS
+    SPRING_PROFILES_ACTIVE: prod
+    SERVER_PORT: 8098
+    NFS_PATH: $PRODUCAO_NFS_PATH
+    CONTAINER_DIR: /build
+  only:
+    - tags

@@ -1,0 +1,93 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+plugins {
+    id 'org.springframework.boot' version '2.3.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'groovy'
+}
+
+sourceCompatibility = '15'
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://artefatos.defpub.local/artifactory/libs-release-local' }
+    maven { url 'http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/' }
+}
+
+ext {
+    set('springCloudVersion', "Hoxton.SR8")
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-groovy-templates'
+
+    implementation 'io.micrometer:micrometer-registry-elastic'
+
+    implementation ('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+
+    compile 'org.springframework.boot:spring-boot-starter-jetty'
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '3.0.6'
+
+    implementation group: 'joda-time', name: 'joda-time', version: '2.10.7'
+    compile group: 'org.jadira.usertype', name: 'usertype.core', version: '7.0.0.CR1'
+
+    compile group: 'com.itextpdf.tool', name: 'xmlworker', version: '5.5.13.1'
+    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13.1'
+    compile group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.9.0'
+
+    compile 'javax.servlet:javax.servlet-api'
+
+    compile 'org.springframework:spring-jdbc'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
+    implementation 'org.springframework.cloud:spring-cloud-starter-security'
+
+    compile 'br.gov.rs.defensoria.oauth:oauth-spring-adapter:1.0.5'
+
+    compile 'commons-digester:commons-digester:2.1'
+
+    compile 'com.google.code.maven-play-plugin.org.playframework:jj-simplecaptcha:1.1'
+
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'mysql:mysql-connector-java'
+    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    testCompile('org.mockito:mockito-core')
+    testCompile('br.gov.rs.defensoria.oauth.test:dpe-oauth-test:0.0.1-RC8')
+    testCompile 'junit:junit'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+task npmInstall(type:Exec) {
+    if(Os.isFamily(Os.FAMILY_WINDOWS)) {
+        commandLine 'npm.cmd', 'install'
+    } else {
+        commandLine 'npm', 'install'
+    }
+}
+
+task bowerInstall(type:Exec) {
+    if(Os.isFamily(Os.FAMILY_WINDOWS)) {
+        commandLine 'cmd', '/c', "node_modules\\.bin\\bower.cmd", 'install'
+    } else {
+        commandLine './node_modules/bower/bin/bower', "install", "--allow-root"
+    }
+}
+
+processResources.dependsOn bowerInstall
+bowerInstall.dependsOn npmInstall
+clean.dependsOn bowerInstall

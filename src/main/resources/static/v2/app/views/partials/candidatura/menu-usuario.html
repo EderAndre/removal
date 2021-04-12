@@ -1,0 +1,55 @@
+<div class="container-fluid container-menu"
+    ng-controller="MenuLateralController">
+    <ul class="menu">
+        <a ng-show="inicio" href="#/">
+            <li class="menu"><span
+                class="glyphicon glyphicon-home btn-lg"></span> <br />
+                Início</li>
+        </a>
+
+        <a ng-show="historico && !inicio" href="#/edital/historico">
+            <li class="menu"><span
+                class="glyphicon glyphicon-inbox btn-lg"></span> <br />
+                Hist&oacute;rico</li>
+        </a>
+
+        <a ng-show="isAdmin" href="#/edital/admin">
+            <li class="menu"><span
+                class="glyphicon glyphicon-cog btn-lg"></span> <br />
+                Administrar</li>
+        </a>
+        <a ng-show="isOperador" href="#/edital/admin/avisos">
+            <li class="menu"><span
+                class="glyphicon glyphicon-cog btn-lg"></span> <br />
+                Administrar</li>
+        </a>
+
+        <a href="javascript:void(0)" ng-click="abreBoxAjuda()">
+            <li class="menu"><span
+                class="glyphicon glyphicon-question-sign btn-lg"></span>
+                <br /> Ajuda</li>
+        </a>
+        <a href="#/logout">
+            <li class="menu"><span
+                class="glyphicon glyphicon-log-out btn-lg"></span> <br />
+                Sair</li>
+        </a>
+    </ul>
+</div>
+<script type="text/ng-template" id="boxAjuda.html">	
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">Escolha uma opção para exibir a documentação de Ajuda</h3>
+          </div>
+          <div class="panel-body">
+            <ul class='list-group' >
+                <li class='list-group-item'><input type="radio" value="pdfreduzido" ng-model="tipoAjuda"  ng-change="abreAjuda(tipoAjuda);closeThisDialog(0)"><label> &nbsp;Manual Resumido - PDF</label></li>
+                <li class='list-group-item'><input type="radio" value="pdf"  ng-model="tipoAjuda"  ng-change="abreAjuda(tipoAjuda);closeThisDialog(0)"><label>  &nbsp;Manual Completo - PDF</label></li>
+            </ul>
+          </div>
+          <div class="panel-footer">	
+              <a class='btn btn-default btn-xg' ng-click="closeThisDialog(0)">Sair<span class='glyphicon glyphicon-log-out'></span></a>
+          </div>
+       </div>
+</script>
+

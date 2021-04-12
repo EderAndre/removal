@@ -1,0 +1,41 @@
+{"result":
+{
+"registros": [
+{
+"data": "08/03/2016 - 11:45",
+"opcoes": [
+{
+"ordem": 1,
+"descricao": "3a DEFENSORIA PUBLICA ESPECIALIZADA EM FAMILIA E SUCESSOES DO FORO CENTRAL"
+},
+{
+"ordem": 2,
+"descricao": "6a DEFENSORIA PUBLICA CIVEL DE 2o GRAU"
+}
+]
+},
+{
+"data": "08/03/2016 - 11:44",
+"opcoes": [
+{
+"ordem": 1,
+"descricao": "1a DEFENSORIA PUBLICA DO FORO REGIONAL DO SARANDI"
+}
+]
+},
+{
+"data": "08/03/2016 - 11:42",
+"opcoes": [
+{
+"ordem": 1,
+"descricao": "5a DEFENSORIA PUBLICA CRIMINAL DE 2o GRAU"
+},
+{
+"ordem": 2,
+"descricao": "6a DEFENSORIA PUBLICA CIVEL DE 2o GRAU"
+}
+]
+}
+]
+}
+}

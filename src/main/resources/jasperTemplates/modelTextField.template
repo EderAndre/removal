@@ -1,0 +1,14 @@
+				<textField isBlankWhenNull="true">
+					<reportElement style="__CONDITIONAL_STYLE" x="__X_POSITION" y="0" width="__WIDTH_DINAMIC_COLUMNS" height="14" forecolor="#000000" uuid="ce839eef-3895-4ebc-99a5-1e6fd6963fb5"/>
+					<box>
+						<pen lineWidth="0.25" lineColor="#999999"/>
+						<topPen lineWidth="0.25" lineColor="#999999"/>
+						<leftPen lineWidth="0.25" lineColor="#999999"/>
+						<bottomPen lineWidth="0.25" lineColor="#999999"/>
+						<rightPen lineWidth="0.25" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle" rotation="None" markup="none">
+						<font size="6" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{__NAME_TEXT_FIELD}]]></textFieldExpression>
+				</textField>

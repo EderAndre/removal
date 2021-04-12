@@ -1,0 +1,12 @@
+DELETE FROM restricoes_candidaturas;
+DELETE FROM candidaturas;
+DELETE FROM candidatos;
+DELETE FROM vagas_edital;
+DELETE FROM unidades;
+DELETE FROM comarcas;
+DELETE FROM permissoes;
+DELETE FROM servidores;
+DELETE FROM fechamentos;
+DELETE FROM editais;
+DELETE FROM funcoes;
+DELETE FROM tipos_edital;
